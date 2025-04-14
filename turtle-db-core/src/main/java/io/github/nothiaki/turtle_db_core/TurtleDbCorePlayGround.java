@@ -1,4 +1,4 @@
-package turtle_db_core;
+package io.github.nothiaki.turtle_db_core;
 
 public class TurtleDbCorePlayGround {
 
@@ -11,7 +11,7 @@ public class TurtleDbCorePlayGround {
                       .storageName("data")
                       .build();
 
-    //public class UserRepository implements TurtleDbRepository<User, String> {}
+    //public class UserRepository implements TurtleDbRepository<User> {}
     private final UserRepository repository;
 
     //query examples

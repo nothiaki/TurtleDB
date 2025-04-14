@@ -1,4 +1,4 @@
-package turtle_db_core;
+package io.github.nothiaki.turtle_db_core;
 
 public class TurtleDb {
 
