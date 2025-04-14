@@ -1,14 +1,17 @@
 package io.github.nothiaki.turtle_db_core;
 
+import java.sql.Timestamp;
+
 public class TurtleDbCorePlayGround {
 
 	public static void main(String[] args) {
+    //declarations
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    User u = new User();
 
     //create a turtle db instance with some configs
-    TurtleDb db = new TurtleDb()
-                      .config()
-                      .something()
-                      .storageName("data")
+    TurtleDb db = new TurtleDb.Builder()
+                      .storage("data")
                       .build();
 
     //public class UserRepository implements TurtleDbRepository<User> {}
@@ -17,15 +20,13 @@ public class TurtleDbCorePlayGround {
     //query examples
     repository.save(u);
 
-    repository.where(this::getUsername).equals("value").first();
+    repository.where("field").equals("value").first();
 
     repository.findOneById(1).atTime(timestamp, AtTimeLogic.BEFORE);
 
 	}
 
 }
-
-//import java.sql.Timestamp;
 
 //@Document(dir = "user")
 //public class User {
