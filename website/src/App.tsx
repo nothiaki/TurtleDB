@@ -8,6 +8,7 @@ import {
   Package,
   Zap
 } from 'lucide-react';
+import { Card } from './components/card';
 
 export default function App() {
 
@@ -26,7 +27,7 @@ export default function App() {
               A lightweight embedded database for Java with time travel queries
             </p>
             <div className="flex gap-4">
-              <button className="bg-accent-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-[#2b8a3e] transition-colors flex items-center gap-2">
+              <button className="bg-accent-500 text-primary-100 px-8 py-3 rounded-lg font-medium hover:bg-[#2b8a3e] transition-colors flex items-center gap-2">
                 Documentation <ArrowRight size={20} />
               </button>
               <button className="bg-primary-100 text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2">
@@ -46,33 +47,21 @@ export default function App() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-xl border border-gray-900">
-              <div className="w-12 h-12 bg-[#2f9e44] rounded-lg flex items-center justify-center mb-4">
-                <Database className="text-white" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Embedded Database</h3>
-              <p className="text-gray-600">
-                Lightweight and self-contained, perfect for Java applications that need reliable data storage without external dependencies.
-              </p>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-900">
-              <div className="w-12 h-12 bg-[#2f9e44] rounded-lg flex items-center justify-center mb-4">
-                <Clock className="text-white" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Time Travel Queries</h3>
-              <p className="text-gray-600">
-                Access and restore historical data states with ease using our powerful time travel query capabilities.
-              </p>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-900">
-              <div className="w-12 h-12 bg-[#2f9e44] rounded-lg flex items-center justify-center mb-4">
-                <Zap className="text-white" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">High Performance</h3>
-              <p className="text-gray-600">
-                Optimized for speed and efficiency, ensuring your applications run smoothly with minimal overhead.
-              </p>
-            </div>
+            <Card
+              icon={Database}
+              title="Embedded Database"
+              desc="Lightweight and self-contained, perfect for Java applications that need reliable data storage without external dependencies."
+            />
+            <Card
+              icon={Clock}
+              title="Time Travel Queries"
+              desc="Access and restore historical data states with ease using our powerful time travel query capabilities."
+            />
+            <Card
+              icon={Zap}
+              title="High Performance"
+              desc="Optimized for speed and efficiency, ensuring your applications run smoothly with minimal overhead."
+            />
           </div>
         </div>
       </div>
@@ -95,7 +84,7 @@ export default function App() {
                   <p className="text-sm text-gray-600">Add to your Maven pom.xml</p>
                 </div>
               </div>
-              <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre className="bg-gray-900 text-primary-100 p-4 rounded-lg overflow-x-auto">
                 <code>{`<dependency>
   <groupId>com.turtledb</groupId>
   <artifactId>turtledb-core</artifactId>
@@ -111,7 +100,7 @@ export default function App() {
                   <p className="text-sm text-gray-600">Simple time travel query</p>
                 </div>
               </div>
-              <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre className="bg-gray-900 text-primary-100 p-4 rounded-lg overflow-x-auto">
                 <code>{`TurtleDB db = new TurtleDB("mydb");
 
 // Insert data
