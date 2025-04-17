@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Card } from './components/card';
 import { IconBadge } from './components/icon-badge';
+import Logo from './assets/logo.svg';
 
 export default function App() {
   const api = "https://api.github.com/repos/nothiaki/TurtleDB"
@@ -31,20 +32,23 @@ export default function App() {
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-left">
-            <h1 className="text-5xl md:text-6xl font-bold text-accent-500 mb-6">
-              TurtleDB
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-900 mb-8">
-              A lightweight embedded database for Java with time travel queries
-            </p>
-            <div className="flex gap-4">
-              <button className="bg-accent-500 text-primary-100 px-8 py-3 rounded-lg font-medium hover:bg-[#2b8a3e] transition-colors flex items-center gap-2">
-                Docs<ArrowRight size={20} />
-              </button>
-              <button className="bg-primary-100 text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2">
-                GitHub<Star size={20} />{stars}
-              </button>
+          <div className="flex flex-col md:flex-row justify-between">
+            <img src={Logo} alt='Logotipo do App' />
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold text-accent-500 mb-6">
+                TurtleDB
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-900 mb-8">
+                A lightweight embedded database for Java with time travel queries
+              </p>
+              <div className="flex gap-4">
+                <button className="bg-accent-500 text-primary-100 px-8 py-3 rounded-lg font-medium hover:bg-[#2b8a3e] transition-colors flex items-center gap-2">
+                  Docs<ArrowRight size={20} />
+                </button>
+                <button className="bg-primary-100 text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                  GitHub<Star size={20} />{stars}
+                </button>
+              </div>
             </div>
           </div>
         </div>
