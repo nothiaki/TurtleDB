@@ -1,19 +1,30 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import {
-  Github,
+  Star,
   Database,
+  Coffee,
   Clock,
   Code2,
   ArrowRight,
   Package,
-  Zap
+  Feather,
+  File,
+  MousePointerClick
 } from 'lucide-react';
 import { Card } from './components/card';
 import { IconBadge } from './components/icon-badge';
 
 export default function App() {
+  const api = "https://api.github.com/repos/nothiaki/TurtleDB"
+  const [stars, setStars] = useState(0);
 
-  const ghStars = 4;
+  useEffect(() => {
+    fetch(api)
+      .then(res => res.json())
+      .then(res => {
+        setStars(res["stargazers_count"]);
+      });
+  }, [])
 
   return (
     <div className="min-h-screen bg-primary-500">
@@ -32,7 +43,7 @@ export default function App() {
                 Docs<ArrowRight size={20} />
               </button>
               <button className="bg-primary-100 text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2">
-                <Github size={20} /> GitHub {ghStars} stars
+                GitHub<Star size={20} />{stars}
               </button>
             </div>
           </div>
@@ -44,24 +55,39 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-8">
             <h2 className="text-3xl font-bold text-gray-900">
-              Why Choose TurtleDB?
+              Why Choose <span className="text-accent-500">TurtleDB</span>?
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card
               icon={Database}
               title="Embedded Database"
-              desc="Lightweight and self-contained, perfect for Java applications that need reliable data storage without external dependencies."
+              desc="Self-contained, perfect for Java applications that need reliable data storage without external dependencies."
             />
             <Card
               icon={Clock}
               title="Time Travel Queries"
-              desc="Access and restore historical data states with ease using our powerful time travel query capabilities."
+              desc="Access historical data states with ease using our powerful time travel query capabilities."
             />
             <Card
-              icon={Zap}
-              title="High Performance"
-              desc="Optimized for speed and efficiency, ensuring your applications run smoothly with minimal overhead."
+              icon={File}
+              title="Document Based"
+              desc="Work with data in a flexible format that's perfect for modern applications. Store, query, and manage documents effortlessly."
+            />
+            <Card
+              icon={MousePointerClick}
+              title="Easy to use"
+              desc="Designed with simplicity in mindset up quickly, write less code, and focus on building."
+            />
+            <Card
+              icon={Coffee}
+              title="Made in Java for Java"
+              desc="Built from the ground up in Java to seamlessly integrate with your Java ecosystem."
+            />
+            <Card
+              icon={Feather}
+              title="Lightweight"
+              desc="Minimal footprint with performance optimized for speed, efficiency, and low resource usage."
             />
           </div>
         </div>
