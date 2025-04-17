@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-primary-500">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <div className="">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col items-center md:flex-row justify-between gap-8">
             <img src={Logo} alt="TurtleDB's logo" className="h-48 md:h-full" />
@@ -42,17 +42,17 @@ export default function App() {
               <p className="text-l md:text-xl text-gray-900 mb-8">
                 A lightweight and modern embedded database for Java, designed to be fast, easy to use, and powerful — with native support for time travel queries so you can explore your data at any point in time. Built specifically for the Java ecosystem, it lets you store, query, and navigate historical states of your data with precision, all without adding unnecessary complexity.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col md:flex-row">
                 <a
                   href="docs"
-                  className="bg-accent-500 text-primary-100 px-8 py-3 rounded-lg font-medium hover:bg-accent-600 transition-colors flex items-center gap-2"
+                  className="bg-accent-500 text-primary-100 px-8 py-3 rounded-lg font-medium hover:bg-accent-600 transition-colors flex items-center gap-2 justify-center md:justify-start"
                 >
-                  Docs<ArrowRight size={20} />
+                  Documentation<ArrowRight size={20} />
                 </a>
                 <a
                   href="https://github.com/nothiaki/TurtleDB"
                   target="_blank"
-                  className="text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-900 hover:border-accent-500 hover:text-accent-500 transition-colors flex items-center gap-2"
+                  className="text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-900 hover:border-accent-500 hover:text-accent-500 transition-colors flex items-center gap-2 justify-center md:justify-start"
                 >
                   GitHub<Star size={20} />{stars}
                 </a>
@@ -143,9 +143,19 @@ export default function App() {
               </div>
               <CodeBlock language="java">
                 {
-`TurtleDB tdb = new TurtleDB().Builder()
-   .storage("tdb");
-   .build();`
+`//TurtleDBConfig.java  //Spring implementation 
+@Configuration
+public class TurtleDBConfig {
+
+  @Bean
+  public TurtleDB init() {
+    return new TurtleDB()
+      .Builder()
+      .storage("tdb")
+      .build();
+  };
+
+}`
                 }
               </CodeBlock>
             </div>
