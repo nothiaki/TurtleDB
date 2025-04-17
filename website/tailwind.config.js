@@ -6,7 +6,8 @@ export default {
       "primary-500": "#F0F0F0",
       "primary-100": "#FCFCFC",
       "accent-500": "#2F9E44",
-      "gray-900": "#101828"
+      "accent-600": "#2B8A3E",
+      "gray-900": "#1A1B26"
     },
     extend: {
     },

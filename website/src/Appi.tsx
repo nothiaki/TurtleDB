@@ -14,9 +14,8 @@ import {
 import { Card } from './components/card';
 import { IconBadge } from './components/icon-badge';
 import Logo from './assets/logo.svg';
-import { CodeBlock } from './components/code-block';
 
-export default function App() {
+export default function Appi() {
   const api = "https://api.github.com/repos/nothiaki/TurtleDB"
   const [stars, setStars] = useState(0);
 
@@ -123,15 +122,15 @@ export default function App() {
                   <p className="text-sm text-gray-900">Add to your Maven pom.xml</p>
                 </div>
               </div>
-              <CodeBlock language="xml">
-                {
-`<dependency>
-   <groupId>io.github.nothiaki</groupId>
-   <artifactId>turtledb-core</artifactId>
-   <version>it will be available soon</version>
-</dependency>`
-                }
-              </CodeBlock>
+              <pre className="bg-gray-900 text-primary-100 p-4 rounded-lg overflow-x-auto">
+                <code>
+                  {`<dependency>
+	<groupId>io.github.nothiaki</groupId>
+  <artifactId>turtledb-core</artifactId>
+  <version>it will be available soon</version>
+</dependency>`}
+                </code>
+              </pre>
             </div>
             <div>
               <div className="flex items-center gap-4 mb-4">
@@ -141,13 +140,13 @@ export default function App() {
                   <p className="text-sm text-gray-900">Simple usage</p>
                 </div>
               </div>
-              <CodeBlock language="java">
-                {
-`TurtleDB tdb = new TurtleDB().Builder()
-   .storage("tdb");
-   .build();`
-                }
-              </CodeBlock>
+              <pre className="bg-gray-900 text-primary-100 p-4 rounded-lg overflow-x-auto">
+                <code>
+                  {`TurtleDB tdb = new TurtleDB().Builder()
+                             .storage("tdb");
+                             .build();`}
+                </code>
+              </pre>
             </div>
           </div>
         </div>
