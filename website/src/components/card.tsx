@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconBadge } from './icon-badge';
 
 type Props = {
   icon: React.ElementType,
@@ -6,12 +7,10 @@ type Props = {
   desc: string
 }
 
-export function Card({ icon: Icon, title, desc }: Props) {
+export function Card({ icon, title, desc }: Props) {
   return (
     <div className="p-6 rounded-xl border border-gray-900">
-      <div className="w-12 h-12 bg-accent-500 rounded-lg flex items-center justify-center mb-4">
-        <Icon className="text-primary-100" size={24} />
-      </div>
+      <IconBadge icon={icon} />
       <h3 className="text-xl font-semibold mb-2">
         {title}
       </h3>
