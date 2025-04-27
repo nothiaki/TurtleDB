@@ -15,6 +15,7 @@ import { Card } from '../components/card';
 import { IconBadge } from '../components/icon-badge';
 import Logo from '../assets/logo.svg';
 import { CodeBlock } from '../components/code-block';
+import { Footer } from '../components/footer';
 
 export default function Home() {
   const api = "https://api.github.com/repos/nothiaki/TurtleDB"
@@ -163,23 +164,7 @@ public class TurtleDBConfig {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div className="text-gray-900">
-              Copyright &copy; 2025-present TurtleDB.
-            </div>
-            <div className="flex gap-6">
-              <a href="docs" className="text-gray-900 hover:text-accent-500">Docs</a>
-              <a
-                href="https://github.com/nothiaki/TurtleDB"
-                target="_blank" className="text-gray-900 hover:text-accent-500"
-              >GitHub</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
