@@ -6,6 +6,8 @@ public class TurtleDb {
 
   private TurtleDb(Builder builder) {
     this.storage = builder.storage;
+
+    //all the logic here
   }
 
   public static class Builder {
@@ -13,12 +15,12 @@ public class TurtleDb {
     private String storage;
 
     public Builder storage(String storage) {
-        this.storage = storage;
-        return this;
+      this.storage = storage;
+      return this;
     }
 
     public TurtleDb build() {
-        return new TurtleDb(this);
+      return new TurtleDb(this);
     }
 
   }
