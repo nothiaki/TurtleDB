@@ -14,6 +14,7 @@ public class TurtleDbCorePlayGround {
 
     TurtleDb db = new TurtleDb.Builder()
                       .storage("data")
+                      .basePackage("com.example")
                       .build();
 
 
