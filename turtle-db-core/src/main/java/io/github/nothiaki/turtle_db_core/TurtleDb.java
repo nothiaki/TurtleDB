@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.github.nothiaki.turtle_db_core.internal.ReflectionContext;
+
 public class TurtleDb {
 
   private final String storage;
@@ -14,23 +16,28 @@ public class TurtleDb {
     this.storage = builder.storage;
     this.basePackage = builder.basePackage;
 
-    //pseudocode
+    ReflectionContext reflectionContext = new ReflectionContext();
 
-    List<Class<?>> repositoriesInterfaces = scanRepositoriesInterfaces(basePackage);
+    List<Class<?>> repositoriesInterfaces = reflectionContext.scanRepositoriesInterfaces(basePackage);
     Map<Class<?>, Object> repositoryImpls = new HashMap<>();
 
     for(Class<?> repositoryInterface : repositoriesInterfaces) {
-      Object impl = createRepositoryImpl(repositoryInterface);
+      Object impl = reflectionContext.createRepositoryImpl(repositoryInterface);
       repositoryImpls.put(repositoryInterface, impl);
     }
 
-    List<Field> fields = scanFields(basePackage);
+    List<Field> fields = reflectionContext.scanAnnotationFields(basePackage);
 
     for(Field field : fields) {
-      Object instance = getInstanceOfField(field);
+      Object instance = reflectionContext.getInstanceOfField(field);
 
       field.setAccessible(true);
-      field.set(instance, repositoryImpls.get(field.getType()));
+
+      try {
+        field.set(instance, repositoryImpls.get(field.getType()));
+      } catch (Exception e) {
+        new RuntimeException("ERROR: fields with nottation should be public.");
+      }
     }
   }
 
