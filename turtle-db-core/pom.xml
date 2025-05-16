@@ -24,6 +24,11 @@
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+    <dependency>
+      <groupId>org.reflections</groupId>
+      <artifactId>reflections</artifactId>
+      <version>0.10.2</version>
+    </dependency>
 	</dependencies>
 
 </project>
